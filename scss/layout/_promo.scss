@@ -1,0 +1,118 @@
+.Promo {
+  $circle-size: (
+    lg: 1782px,
+    md: 1250px,
+    sm: 814px,
+    xs: 580px,
+  );
+  $circle-size-animate: (
+    lg: 1982px,
+    md: 1400px,
+    sm: 864px,
+    xs: 580px,
+  );
+  $circle-opacity: (
+    lg: 0.03,
+    md: 0.03,
+    sm: 0.06,
+    xs: 0.3,
+  );
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 221px);
+
+  > .container {
+    flex: 1;
+
+    .Nav {
+      position: absolute;
+      bottom: map-get($spacers, 6);
+
+      @media (max-width: map-get($grid-breakpoints, lg) - 1) {
+        display: none !important;
+      }
+    }
+  }
+
+  .btn + .btn {
+    // Slightly increase space between btns
+    margin-left: 23px;
+
+    @media (max-width: 767px) {
+      margin-left: 15px;
+    }
+  }
+
+  .Promo-circles {
+    pointer-events: none;
+
+    ~ * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .Promo-circle {
+      position: absolute;
+      z-index: 0;
+      overflow: hidden;
+      background: $primary;
+      border-radius: 50%;
+      transition: $transition-base;
+
+      // Next properties should be animated on scroll from -30% to 30%
+      transform: translateY(-30%); // scrollTop = 0
+      will-change: transform;
+
+      > img {
+        opacity: 0.4;
+        transition: $transition-base;
+      }
+    }
+
+    @each $suffix in (lg, md, sm, xs) {
+      .Promo-circle.Promo-circle--#{$suffix} {
+        top: 50%;
+        left: -1 * map-get($circle-size, #{$suffix}) * 0.344827586;
+        width: map-get($circle-size, #{$suffix});
+        height: map-get($circle-size, #{$suffix});
+        margin-top: -1 * map-get($circle-size, #{$suffix}) / 2;
+        opacity: map-get($circle-opacity, #{$suffix});
+      }
+    }
+
+    &.are-enlarged {
+      @each $suffix in (lg, md, sm, xs) {
+        .Promo-circle.Promo-circle--#{$suffix} {
+          width: map-get($circle-size-animate, #{$suffix});
+          height: map-get($circle-size-animate, #{$suffix});
+          opacity: map-get($circle-opacity, #{$suffix}) + 0.02;
+
+          > img { opacity: 0.7; }
+        }
+      }
+    }
+
+    .Promo-circle.Promo-circle--xs {
+      &.are-enlarged {
+        opacity: 0.6;
+
+        > img { opacity: 0.7; }
+      }
+    }
+  }
+
+  .Promo-person {
+    position: absolute;
+    right: -220px;
+    bottom: -1 * map-get($spacers, 6);
+    height: 266px;
+    opacity: 0.5;
+    transition: $transition-base;
+  }
+
+  a:hover .Promo-person {
+    opacity: 0.8;
+  }
+}

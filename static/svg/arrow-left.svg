@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="18px" viewBox="0 0 10 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-right</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="arrow-right" transform="translate(5.000000, 9.000000) scale(-1, 1) translate(-5.000000, -9.000000) " fill="#0B0A0A" fill-rule="nonzero">
+            <path d="M7.778,8.808 L0.678,15.908 C0.425234595,16.1605868 0.326423168,16.5288353 0.418787027,16.87403 C0.511150886,17.2192246 0.780657763,17.4889221 1.12578703,17.58153 C1.47091629,17.6741378 1.8392346,17.5755868 2.092,17.323 L9.707,9.707 C9.9427168,9.47147177 10.0454819,9.13392207 9.981,8.807 C10.0451292,8.48039987 9.94239041,8.14331162 9.707,7.908 L2.092,0.293 C1.70153468,-0.0977414605 1.06824146,-0.0979653181 0.6775,0.2925 C0.286758539,0.682965318 0.286534682,1.31625854 0.677,1.707 L7.778,8.807 L7.778,8.808 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

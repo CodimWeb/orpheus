@@ -1,0 +1,65 @@
+// Project styles master file.
+
+// Uses:
+// - Bootstrap 4.2                  https://getbootstrap.com/docs/4.2
+// - SUIT CSS naming conventions    https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
+// - 7-1 architecture pattern       https://github.com/HugoGiraudel/sass-boilerplate
+// - stylelint                      https://github.com/stylelint/stylelint
+
+// slick slider
+@import "plugins/slick/slick";
+
+// Abstracts
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+// next line overrides and extends https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+@import "abstracts/variables";
+@import "~bootstrap/scss/mixins";
+// Customize Bootstrap mixins
+@import "abstracts/mixins/background";
+@import "abstracts/mixins/buttons";
+// Project mixins
+@import "abstracts/mixins/type";
+
+// Base
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "base/type";
+@import "base/grid"; // simplified fixed-width grid
+@import "~bootstrap/scss/utilities/background";
+@import "~bootstrap/scss/utilities/display";
+@import "~bootstrap/scss/utilities/flex";
+@import "~bootstrap/scss/utilities/spacing";
+@import "~bootstrap/scss/utilities/text";
+@import "base/utilities";
+
+// Components
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/forms";
+@import "components/buttons"; // buttons additions
+@import "components/background"; // massive complicated backgrounds (with img, parallax)
+@import "components/collapsible";
+@import "components/date-picker";
+@import "components/images";
+@import "components/icons";
+@import "components/card";
+@import "components/player";
+@import "components/input-group";
+@import "~bootstrap/scss/media";
+
+// Layout
+@import "layout/article";
+@import "layout/footer";
+@import "layout/nav";
+@import "layout/promo";
+@import "layout/horizontal-calendar";
+@import "layout/player-overlay";
+@import "layout/schedule";
+@import "layout/live-schedule";
+@import "layout/promoslider";
+
+// Pages
+@import "pages/index";
+
+// Developer helpers
+// @import "dev/grid-overlay";

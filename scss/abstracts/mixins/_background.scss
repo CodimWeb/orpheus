@@ -1,0 +1,4 @@
+// Using $bg-colors intead of $theme-colors
+@each $color, $value in $bg-colors {
+  @include bg-variant(".bg-#{$color}", $value);
+}

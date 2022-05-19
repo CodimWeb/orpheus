@@ -1,0 +1,160 @@
+// Original: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+
+// Browser’s default font size, typically `16px`
+$browser-font-size: 16px; // used for calculations
+
+
+// Color system
+
+// Grayscale
+$black:       black;
+$gray-900:    #0b0a0a;
+$gray-800:    #312f2d;
+$gray-700:    $gray-800;
+$gray-600:    $gray-800;
+$gray-500:    #908686;
+$gray-400:    #979797;
+$gray-300:    #b8b8b8;
+$gray-200:    #d8d8d8;
+$gray-100:    #f7f0ec;
+$white:       white;
+
+// Palette
+$orange:      #f0935a;
+$dawn-pink:   #f9f4f2;
+$crowshead:   #180706;
+$dark:          $gray-900;
+
+$colors: (
+  "orange":     $orange,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800,
+);
+
+$primary:       $orange;
+
+$theme-colors: (
+  "primary":    $primary,
+  // "secondary":  $dawn-pink,
+  // "dark":       $crowshead,
+  // "black":      $black,
+  "light":      $gray-100,
+);
+
+$bg-colors: (
+  "dark":       $crowshead,
+  "black":      $black,
+  "light":      $gray-100,
+  "gray-dark":  $gray-900,
+);
+
+
+// Options
+$enable-validation-icons: false;
+
+
+// Spacing
+$spacer-step: 6px / $browser-font-size * 1rem; // (6px spacer step / 16px base) in rems
+
+$spacer: $spacer-step * 3; // common
+$spacers: (
+  0: $spacer-step * 0,
+  1: $spacer-step * 1,
+  2: $spacer-step * 2,
+  3: $spacer-step * 3,
+  4: $spacer-step * 4,
+  5: $spacer-step * 5,
+  6: $spacer-step * 6,
+  7: $spacer-step * 7,
+  8: $spacer-step * 8,
+  9: $spacer-step * 9,
+  10: $spacer-step * 10,
+  11: $spacer-step * 11,
+  12: $spacer-step * 12,
+);
+
+
+// Body
+
+$body-bg:                   map-get($bg-colors, light);
+$body-color:                map-get($bg-colors, gray-dark);
+
+
+// Links
+
+$link-color:                theme-color("primary");
+$link-hover-color:          $link-color;
+
+
+// Paragraphs
+
+$paragraph-margin-bottom:   0;
+
+
+// Grid breakpoints
+
+// From the design:
+$grid-columns:      14;
+$grid-column-width: 80px;
+$grid-gutter-width: 10px;
+$grid-x-offset:     40px;
+
+$grid-breakpoints: (
+  // 6 columns and 5 spacers => | || || || || || |
+  xs: 0,
+  sm: 6  * $grid-column-width  + (6  - 1) * $grid-gutter-width + $grid-x-offset * 2,
+  md: 8  * $grid-column-width  + (8  - 1) * $grid-gutter-width + $grid-x-offset * 2,
+  lg: 10 * $grid-column-width  + (10 - 1) * $grid-gutter-width + $grid-x-offset * 2,
+  xl: 14 * $grid-column-width  + (14 - 1) * $grid-gutter-width + $grid-x-offset * 2,
+);
+
+$container-max-widths: (
+  sm: map-get($grid-breakpoints, sm) - $grid-x-offset * 2,
+  md: map-get($grid-breakpoints, md) - $grid-x-offset * 2,
+  lg: map-get($grid-breakpoints, lg) - $grid-x-offset * 2,
+  xl: map-get($grid-breakpoints, xl) - $grid-x-offset * 2,
+);
+
+
+// Fonts
+
+$font-family-sans-serif:      'PT Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-monospace:       'Cera Condensed Pro', 'Oswald', sans-serif;
+$font-family-base:            $font-family-sans-serif;
+
+$font-size-base:              16px / $browser-font-size * 1rem;
+$font-size-lg:                24px / $browser-font-size * 1rem;
+$font-size-sm:                14px / $browser-font-size * 1rem;
+$font-size-xs:                12px / $browser-font-size * 1rem;
+
+$font-weight-lighter:         100;
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-bold:            500;
+$font-weight-bolder:          bold;
+
+$line-height-base:            22px / 16px * 1rem;
+$line-height-sm:              20px / 16px * 1rem;
+$line-height-lg:              1em; // height of the font itself
+
+$h0-font-size:                80px / $browser-font-size * 1rem;
+$h1-font-size:                54px / $browser-font-size * 1rem;
+$h2-font-size:                36px / $browser-font-size * 1rem;
+$h3-font-size:                24px / $browser-font-size * 1rem;
+$h4-font-size:                20px / $browser-font-size * 1rem;
+$h5-font-size:                18px / $browser-font-size * 1rem;
+$h6-font-size:                $font-size-base;
+
+$headings-font-family:        $font-family-monospace;
+$headings-font-weight:        $font-weight-bolder;
+
+$small-font-size:             $font-size-sm;
+
+$text-muted:                  $gray-500;
+
+
+// Components
+
+$border-radius:               3px / $browser-font-size * 1rem;
+$border-radius-lg:            $border-radius * 2;

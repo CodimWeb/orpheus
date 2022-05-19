@@ -1,0 +1,15 @@
+.icon-app {
+  $icon-width:  214px;
+  $icon-height: 70px;
+  $icon-offset: 35px;
+
+  &,
+  > svg {
+    width: $icon-width;
+    height: $icon-height;
+  }
+
+  + .icon-app {
+    margin-left: $icon-offset;
+  }
+}

@@ -1,0 +1,24 @@
+body:after {
+  $grid-overlay-color: rgba(#ff5f5f, 0.12);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999999;
+  pointer-events: none;
+  content: '';
+  background-image:
+    linear-gradient(
+      to right,
+      $grid-overlay-color 0,
+      $grid-overlay-color ($grid-column-width / 2),
+      transparent ($grid-column-width / 2),
+      transparent ($grid-column-width / 2 + $grid-gutter-width),
+      $grid-overlay-color ($grid-column-width / 2 + $grid-gutter-width),
+    );
+  background-repeat: repeat;
+  background-position: center;
+  background-size: $grid-column-width + $grid-gutter-width;
+}

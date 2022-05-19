@@ -1,0 +1,67 @@
+.bg-about {
+  background-image: url('/static/backgrounds/man.jpg');
+  background-position: 20%;
+  background-size: cover;
+}
+
+.bg-lightAnimated {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: map-get($bg-colors, light);
+  border-top-left-radius: 10px;
+  transform: translateX(40px);
+  will-change: transform;
+
+  @media screen and (max-width: map-get($grid-breakpoints, 'md')) {
+    border-top-left-radius: 0;
+    transform: translateX(0);
+  }
+}
+
+.bg-imgBigLeft {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(50% + #{($grid-column-width - $grid-gutter-width / 2) * 3});
+
+  @media screen and (max-width: map-get($grid-breakpoints, 'xl')) {
+    width: calc(30% + #{($grid-column-width - $grid-gutter-width / 2) * 3});
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, 'lg')) {
+    width: calc(20% + #{($grid-column-width - $grid-gutter-width / 2) * 3});
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, 'md')) {
+    width: 100%;
+    filter: brightness(0.4);
+  }
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.bg-phone {
+  $bg-width: 1020px;
+
+  position: absolute;
+  right: -1 * $bg-width / 3;
+  bottom: -1 * $bg-width / 8 - $bg-width / 6;
+  z-index: 1;
+  width: $bg-width;
+  pointer-events: none;
+
+  &.is-top {
+    bottom: -1 * $bg-width / 8;
+    z-index: 2;
+  }
+}

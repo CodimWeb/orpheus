@@ -1,0 +1,112 @@
+// stylelint-disable declaration-no-important, selector-list-comma-newline-after
+
+//
+// Headings
+//
+
+.h0,
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.h1-a, .h2-a, .h3-a {
+  margin: 0;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+}
+
+.h0 { font-size: $h0-font-size; }
+
+@media screen and (max-width: map-get($grid-breakpoints, 'md')) {
+  .h0 {
+    font-size: $h1-font-size;
+  }
+}
+
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+
+.h1-a { font-size: $h1-font-size / 0.9; } // 60px
+.h2-a { font-size: $h2-font-size / 0.9; } // 40px
+.h3-a { font-size: $h3-font-size / 0.8; } // 30px
+
+.h0,
+h1, .h1,
+h2, .h2,
+h3, .h3,
+.h1-a, .h3-a {
+  line-height: $line-height-lg;
+}
+
+h4, .h4 {
+  font-size: $h4-font-size;
+  line-height: 30px / 20px * 1em;
+}
+
+h5, .h5 {
+  font-size: $h5-font-size;
+  line-height: 22px / 18px * 1em;
+}
+
+h6, .h6 {
+  font-size: $h6-font-size;
+  line-height: $line-height-base;
+}
+
+//
+// Horizontal rules
+//
+
+hr {
+  border: 0;
+  border-top: $hr-border-width solid $hr-border-color;
+}
+
+//
+// Emphasis
+//
+
+small,
+.small {
+  font-size: $small-font-size;
+  font-weight: $font-weight-normal;
+}
+
+
+//
+// Lists
+//
+
+ul,
+.list-unstyled {
+  @include list-unstyled;
+}
+
+// List of headers
+ul.list-headers li {
+  @extend .h3;
+}
+
+
+//
+// Text
+//
+
+.text-sans-serif { font-family: $font-family-sans-serif; }
+.text-align-right { text-align: right; }
+
+//
+// Links
+//
+
+%hover {
+  &:hover, &:active, &:focus {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+a {
+  @extend %hover;
+
+  color: inherit;
+}

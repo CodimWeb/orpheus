@@ -1,0 +1,20 @@
+.LiveSchedule {
+  $track-color: #f1d4d4;
+
+  border-top: 1px solid rgba($track-color, 0.4);
+
+  .LiveSchedule-row {
+    flex-wrap: nowrap;
+  }
+
+  .LiveSchedule-text {
+    max-width: 60%;
+  }
+
+  .LiveSchedule-pointer {
+    width: 3px;
+    height: 26px;
+    background: $primary;
+    border-radius: $border-radius;
+  }
+}

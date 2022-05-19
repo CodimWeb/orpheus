@@ -1,0 +1,35 @@
+// Mobile styles for schedule
+@media (max-width: map-get($grid-breakpoints, md) - 1) {
+  .Schedule-title {
+    font-size: 32px / $browser-font-size * 1rem;
+  }
+
+  .Schedule-subTitle {
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-base;
+    font-weight: normal;
+    color: $text-muted;
+  }
+
+  .Schedule-time {
+    margin: 0 0 map-get($spacers, 7) 0;
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bolder !important;
+
+    &.Schedule-time--inPlaylist {
+      margin: 0 0 map-get($spacers, 3) 0;
+    }
+  }
+
+  .Schedule-arrow {
+    position: absolute;
+    right: $grid-gutter-width / 2;
+    width: 8px;
+    margin-top: 2px;
+
+    .Collapsible__trigger.is-open & {
+      transform: rotate(-90deg);
+    }
+  }
+}

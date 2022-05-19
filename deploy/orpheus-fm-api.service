@@ -1,0 +1,21 @@
+[Unit]
+
+[Service]
+WorkingDirectory=/var/www/orpheus-fm
+ExecStart=/var/www/orpheus-fm/node_modules/.bin/next start
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=orpheus-fm
+User=www-data
+Group=www-data
+
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=DOMAIN=http://orpheusradio.ru
+Environment=API_URL=http://api.orpheusradio.ru
+Environment=API_URL_WS=ws://api.orpheusradio.ru
+Environment=STATIC_URL=http://static.orpheusradio.ru
+
+[Install]
+WantedBy=multi-user.target

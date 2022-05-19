@@ -1,0 +1,91 @@
+.Article {
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.44px;
+
+  .Article-Item + .Article-Item,
+  .public-DraftStyleDefault-ol + .Article-Item {
+    margin-top: 30px;
+  }
+
+  .Article-Item + h2.Article-Item,
+  .public-DraftStyleDefault-ol + h2.Article-Item {
+    margin-top: 50px;
+  }
+
+  .public-DraftStyleDefault-ol {
+    margin-top: 30px;
+  }
+
+  .Article-Item img {
+    width: 100%;
+  }
+
+  .Player-wrapper {
+    position: relative;
+    padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+  }
+
+  .Player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  a {
+    font-weight: bold;
+  }
+
+  blockquote.Article-Item {
+    font-style: italic;
+    font-size: $font-size-lg;
+    position: relative;
+    padding: 35px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    letter-spacing: 0.2px;
+    border-top: $hr-border-width solid $hr-border-color;
+    border-bottom: $hr-border-width solid $hr-border-color;
+  
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      background-repeat: no-repeat;
+      -webkit-background-size: 40px 32px;
+              background-size: 40px 32px;
+      width: 60px;
+      height: 32px;
+      opacity: 0.7;
+  
+      .bg-white & {
+        background-color: $white;
+      }
+  
+      .bd-light & {
+        background-color: $light;
+      }
+    }
+  
+    &:before {
+      background-image: url("/static/svg/quotes-left.svg");
+      background-position-x: left;
+      left: 0;
+      top: -16px;
+    }
+  
+    &:after {
+      background-image: url("/static/svg/quotes-right.svg");
+      background-position-x: right;
+      right: 0;
+      bottom: -16px;
+    }
+  }
+}
+
+.page-item.active {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background: lighten($gray-200, 2%);
+  border-radius: $border-radius;
+}

@@ -1,0 +1,272 @@
+.Nav {
+  color: $gray-300;
+
+  &.Nav--sm-vertical {
+    @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+      &,
+      .Nav-link {
+        display: block;
+      }
+    }
+  }
+
+  &.Nav-dark {
+    color: $crowshead;
+  }
+
+  &.Nav-white {
+    color: $dawn-pink;
+  }
+
+  &.Nav-breadcrumbs {
+    display: flex;
+  }
+
+  > li {
+    display: inline;
+  }
+
+  .Nav-logo {
+    $logo-top-offset:   2px;
+    $logo-width:        66px;
+
+    position: relative;
+    top: $logo-top-offset;
+    display: block;
+    width: $logo-width;
+
+    img {
+      width: 100%;
+    }
+
+    &.Nav-logo--big {
+      $logo-width:       80px;
+
+      width: $logo-width;
+    }
+  }
+
+  .Nav-now {
+    position: relative;
+    font-size: $h5-font-size;
+    font-weight: normal !important;
+    line-height: 1em;
+    color: $white !important;
+
+    &:before {
+      $now-circle-size: 10px;
+
+      position: absolute;
+      top: 0;
+      left: -1 * ($grid-gutter-width + $now-circle-size);
+      width: $now-circle-size;
+      height: $now-circle-size;
+      content: '';
+      background: $primary;
+      border-radius: 50%; // circle
+    }
+  }
+
+  .Player {
+    $player-left-offset: 38px;
+
+    margin-left: $player-left-offset;
+  }
+
+  .Nav-tracksBtn {
+    $tracks-button-width:    20px;
+    $tracks-btn-left-offset: 24px;
+
+    width: $tracks-button-width;
+    margin-left: $tracks-btn-left-offset;
+    cursor: pointer;
+  }
+
+  .Nav-link {
+    $link-right-offset: 30px;
+    $link-left-offset: 26px;
+
+    @extend %hover;
+
+    margin-right: $link-right-offset;
+    font-family: $font-family-monospace;
+    font-weight: $font-weight-bolder;
+    color: inherit;
+
+    svg {
+      $icon-height:       20px;
+      $icon-top-offset:   -2px;
+      $icon-right-offset: 11px;
+
+      height: $icon-height;
+      margin-top: $icon-top-offset;
+      margin-right: $icon-right-offset;
+    }
+
+    &.active {
+      color: $primary;
+    }
+
+    &.Nav-link--left-offset {
+      margin-left: $link-left-offset;
+    }
+
+    &.Nav-link--menuLink {
+      margin-right: 0;
+
+      svg {
+        // Fix size of the menu icon:
+        height: 13px;
+      }
+    }
+
+    &.Nav-link--searchLink {
+      // Place menu icon close to the border of the designed grid:
+      margin-left: 24px;
+    }
+
+    &:first-child { margin-left: 0 !important; }
+    &:last-child { margin-right: 0 !important; }
+  }
+
+  .Nav-arrow {
+    width: 8px;
+    height: 16px;
+    margin: 2px 16px 0 -10px;
+  }
+
+  &.Nav--main {
+    position: absolute;
+    top: -82px;
+    right: 0;
+    left: 0;
+    display: none;
+
+    @media (min-width: map-get($grid-breakpoints, xl)) {
+      display: block;
+    }
+
+    .Nav-link {
+      margin-right: 0;
+    }
+  }
+
+  &.Nav--about {
+    .Nav-link {
+      margin-right: 47px;
+    }
+  }
+
+  &.Nav--sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: $zindex-tooltip + 1;
+
+    &.is-transparent { // for animation
+      opacity: 0;
+      will-change: opacity;
+    }
+
+    + .Nav--sticky-spacer {
+      height: 82px;
+      background-color: $crowshead;
+    }
+  }
+}
+
+.NavList {
+  .NavList-link {
+    @extend %hover;
+
+    display: flex;
+    align-items: center;
+    color: inherit;
+
+    .NavList-img {
+      $img-size:   24px;
+      $img-offset: 12px;
+
+      width: $img-size;
+      margin-right: $img-offset;
+      text-align: center;
+
+      svg {
+        display: inline-block;
+        height: $img-size;
+      }
+    }
+  }
+}
+
+.Nav-social {
+  $border: 1px solid $gray-200;
+
+  width: 54px;
+  border: $border;
+  border-radius: $border-radius;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 50px;
+    cursor: pointer;
+    border-top: $border;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    svg {
+      max-width: 28px;
+      height: 28px;
+      fill: #c7c3c1;
+    }
+  }
+}
+
+.Nav .Nav-link.Nav-searchToggle {
+  margin-right: 0;
+}
+
+// Nav as a menu
+.Nav .Nav-link.Nav-menuToggle {
+  margin: 0 0 0 ($grid-gutter-width * 3) !important;
+
+  svg {
+    height: 13px;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    display: none;
+  }
+}
+
+.Nav-menu {
+  position: fixed;
+  top: 82px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: $black;
+
+  .Nav-link {
+    display: block;
+    margin: 16px 0;
+    font-size: $h3-font-size;
+    color: $gray-100;
+  }
+
+  .Player {
+    margin-left: 0;
+
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      display: none !important;
+    }
+  }
+}

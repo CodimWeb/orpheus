@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Regular Italic'),
+        url('RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Regular'),
+        url('Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Black Italic'),
+        url('BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Light'),
+        url('Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Bold Italic'),
+        url('BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Black'),
+        url('Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Medium'),
+        url('Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Bold'),
+        url('Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Thin')
+        url('Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Medium Italic'),
+        url('MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Light Italic'),
+        url('LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cera Condensed Pro';
+    src: local('Cera Condensed Pro Thin Italic'),
+        url('ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+

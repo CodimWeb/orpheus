@@ -1,0 +1,168 @@
+.LivePlayer {
+  $play-height:       36px;
+  $play-offset:       52px;
+  $vol-height:        16px;
+  $vol-offset:        14px;
+  $vol-slider-width:  152px;
+  $vol-slider-height: 2px;
+
+  svg > path {
+    stroke: $primary;
+  }
+
+  .LivePlayer-play {
+    margin-right: $play-offset;
+    cursor: pointer;
+
+    svg {
+      height: $play-height;
+    }
+
+    svg > path {
+      stroke: $white;
+    }
+
+    &.playing svg > path {
+      stroke: $primary;
+    }
+  }
+
+  .LivePlayer-vol {
+    margin: 0 ($grid-column-width + $grid-gutter-width * 2) 0 $vol-offset;
+
+    svg {
+      height: $vol-height;
+    }
+  }
+
+  .LivePlayer-volSlider {
+    width: $vol-slider-width;
+    height: $vol-slider-height;
+    background: rgba($gray-400, 0.8);
+    border-radius: $vol-slider-height;
+    cursor: pointer;
+    position: relative;
+
+    /* click area */
+    &:before {
+      display: block;
+      position: absolute;
+      top: -15px;
+      right: -6px;
+      bottom: -15px;
+      left: -6px;
+      content: ' ';
+    }
+
+    .LivePlayer-volFill {
+      position: relative;
+      height: $vol-slider-height;
+      background: $primary;
+      border-radius: $vol-slider-height;
+      pointer-events: none;
+
+      &:after {
+        $stick-width:  $vol-slider-height;
+        $stick-height: 18px;
+
+        position: absolute;
+        top: 50%;
+        right: -1 * $stick-width / 2;
+        width: $stick-width;
+        height: $stick-height;
+        margin-top: -1 * $stick-height / 2;
+        content: '';
+        background: $primary;
+        border-radius: $stick-width;
+      }
+    }
+  }
+
+  .LivePlayer-quality {
+    font-family: $font-family-monospace;
+    color: $text-muted;
+    cursor: pointer;
+
+    @media (max-width: map-get($grid-breakpoints, md) - 1) {
+      display: none;
+    }
+
+    + .LivePlayer-quality {
+      margin-left: $grid-gutter-width * 2;
+    }
+
+    &.is-active {
+      color: $white;
+    }
+  }
+}
+
+
+.Player {
+  $player-offset:          $grid-gutter-width;
+  $player-vol-height:      18px;
+  $player-vol-offset:      24px;
+  $player-play-height:     26px;
+  $player-info-top-offset: 8px;
+  $player-info-x-offset:   30px;
+  $player-descr-offset:    2px;
+
+  &.Player-main {
+    color: $white;
+
+    .Nav-tracksBtn {
+      position: absolute;
+      right: -5.5 * $grid-gutter-width;
+    }
+  }
+
+  .Player-vol {
+    margin-right: $player-vol-offset;
+    cursor: pointer;
+
+    svg {
+      height: $player-vol-height;
+    }
+
+    &.muted svg > path {
+      stroke: $primary;
+    }
+  }
+
+  .Player-play {
+    cursor: pointer;
+
+    svg {
+      height: $player-play-height;
+    }
+
+    &:hover,
+    &.playing {
+      svg > path {
+        stroke: $primary;
+      }
+    }
+  }
+
+  .Player-info {
+    position: relative;
+    top: $player-info-top-offset;
+    margin-left: $player-info-x-offset;
+  }
+
+  .Player-track {
+    font-family: $font-family-monospace;
+    font-size: $h5-font-size;
+  }
+
+  .Player-descr {
+    margin-top: $player-descr-offset;
+    font-size: $font-size-xs;
+    color: $gray-100;
+    opacity: 0.6;
+  }
+}
+
+.Nav--main .Player .Player-descr {
+  font-size: $font-size-sm;
+}

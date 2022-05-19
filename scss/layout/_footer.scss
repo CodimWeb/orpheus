@@ -1,0 +1,100 @@
+.Footer {
+  $footer-color: $white;
+  $footer-background: $black;
+  $footer-link-offset: map-get($spacers, 3);
+
+  color: $footer-color;
+  background: $footer-background;
+
+  @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+    // First column adds a marging already, use no padding
+    padding-top: 0 !important;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .text-muted { // override
+    color: inherit !important;
+    opacity: 0.5;
+  }
+
+  .Footer-column {
+    @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+      margin-top: map-get($spacers, 8);
+    }
+  }
+
+  .Footer-column.is-withoutTitle {
+    margin-top: $footer-link-offset + $line-height-base;
+
+    @media (max-width: map-get($grid-breakpoints, xl) - 1) {
+      svg {
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  .Footer-link {
+    @extend %hover;
+
+    margin-bottom: $footer-link-offset;
+    font-family: $font-family-monospace;
+
+    svg {
+      $icon-size: 20px;
+
+      display: inline-block;
+      width: $icon-size;
+      margin: 0 9px 0 29px;
+    }
+
+    &.Footer-link--widerImg svg {
+      $icon-size: 23px;
+
+      width: $icon-size;
+      margin-left: 26px;
+    }
+  }
+
+  // Using a very custom font to make ”16+” look like an icon
+  .Footer-age {
+    position: relative;
+    top: 2px;
+    margin-right: $grid-gutter-width * 2;
+    font-family: $font-family-monospace;
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 1em;
+  }
+
+  .Footer-social {
+    &:first-child {
+      margin-left: 8px;
+
+      @media (max-width: map-get($grid-breakpoints, xl) - 1) {
+        margin-left: 0;
+      }
+    }
+
+    + .Footer-social {
+      margin-left: 60px;
+    }
+
+    &.is-vk svg {
+      width: 30;
+      height: 17px;
+    }
+
+    &.is-fb svg {
+      width: 15px;
+      height: 30px;
+    }
+
+    &.is-twi svg {
+      width: 27px;
+      height: 23px;
+    }
+  }
+}

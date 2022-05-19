@@ -1,0 +1,60 @@
+.TimeTable {
+  .Collapsible {
+    $collapsible-h-offset: 40px;
+
+    padding: 0 $collapsible-h-offset;
+    margin: 0 (-1 * $collapsible-h-offset);
+
+    .Collapsible-showOnHover,
+    .Collapsible-showOnExpand {
+      display: none;
+    }
+
+    @media (pointer: fine) { // not touch
+      &:hover {
+        background: $white;
+        border-top: 0;
+        border-radius: $border-radius;
+
+        .Collapsible__trigger {
+          &:not(.is-open) .Collapsible-showOnHover {
+            display: block;
+          }
+
+          > * {
+            border-top: 0;
+          }
+        }
+      }
+    }
+
+    .Collapsible__trigger {
+      > * {
+        cursor: pointer;
+        border-top: 1px solid $gray-200;
+      }
+
+      &.is-open {
+        .Collapsible-showOnExpand {
+          display: block;
+        }
+
+        > *,
+        + .Collapsible__contentOuter {
+          padding: 0 $collapsible-h-offset;
+          margin: 0 (-1 * $collapsible-h-offset);
+          background: $white;
+        }
+
+        > * {
+          border-top: 0;
+          border-radius: $border-radius $border-radius 0 0;
+        }
+
+        + .Collapsible__contentOuter {
+          border-radius: 0 0 $border-radius $border-radius;
+        }
+      }
+    }
+  }
+}

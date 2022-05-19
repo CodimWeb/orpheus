@@ -1,0 +1,180 @@
+//disable scroll with open player
+.open-player {
+  height: 100vh;
+  overflow: hidden;
+}
+
+// Big fullscreen player overlay
+.PlayerOverlay {
+  $tape-z-index:         1;
+  $cover-z-index:        2;
+  $content-z-index:      3;
+  $logo-height:          64px;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  @media (max-width: map-get($grid-breakpoints, xl) - 1) {
+    position: auto;
+  }
+
+  .container.full-height {
+    position: relative;
+    z-index: $content-z-index;
+
+    @media (max-width: map-get($grid-breakpoints, xl) - 1) {
+      height: auto !important;
+    }
+
+    .row {
+      align-items: flex-start;
+    }
+
+    [class^="col"] {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &,
+    > .row,
+    > .row > [class^="col"] {
+      min-height: 100%;
+    }
+  }
+
+  .LivePlayer { // sync height with logo
+    height: $logo-height;
+  }
+
+  .LiveSchedule {
+    position: absolute;
+    top: 462px; // content offset
+    left: 50%;
+    margin-left: -1 * $grid-column-width * 11 + $grid-gutter-width * 7.5;
+
+    @media (max-width: map-get($grid-breakpoints, xl) - 1) {
+      display: none;
+    }
+
+    .LiveSchedule-pointer {
+      position: absolute;
+      top: -1 * 26px / 2; // half-height
+      left: $grid-column-width * 7 + $grid-gutter-width * 7;
+    }
+
+    .LiveSchedule-row {
+      width: $grid-column-width * 24 + $grid-gutter-width * 23;
+    }
+  }
+
+  .PlayerOverlay-cover {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $cover-z-index;
+    width: calc(50% - #{$grid-column-width * 3 + $grid-gutter-width * 3.5});
+    pointer-events: none;
+    background: rgba(lighten($crowshead, 2%), 0.9);
+
+    @media (max-width: map-get($grid-breakpoints, xl) - 1) {
+      display: none;
+    }
+  }
+
+  .PlayerOverlay-collapsibleTitle {
+    color: $primary;
+  }
+
+  .PlayerOverlay-arrowLeft {
+    width: 10px;
+    margin-right: $grid-gutter-width;
+  }
+
+  .Collapsible__trigger.is-open .PlayerOverlay-arrowLeft {
+    transform: rotate(-90deg);
+  }
+
+  .PlayerOverlay-logo > img {
+    height: $logo-height;
+  }
+
+  .PlayerOverlay-close {
+    cursor: pointer;
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    line-height: 35px;
+    text-align: center;
+
+    @media (max-width: map-get($grid-breakpoints, md) - 1) {
+      margin-top: -5px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .PlayerOverlay-link {
+    $icon-width: 17px;
+    $icon-offset: $grid-gutter-width;
+
+    @media (max-width: map-get($grid-breakpoints, xl) - 1) {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: map-get($spacers, 3) 0;
+      padding-left: calc(50% - #{$grid-column-width * 4 + $grid-gutter-width * 3.5});
+      background: $gray-900;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, md) - 1) {
+      padding-left: calc(50% - #{$grid-column-width * 3 + $grid-gutter-width * 2.5});
+    }
+
+    @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+      padding-left: $grid-gutter-width * 2;
+    }
+
+    svg {
+      position: relative;
+      top: -1px;
+      width: $icon-width;
+      margin-right: $icon-offset;
+
+      > path {
+        fill: $primary;
+      }
+    }
+  }
+
+  .PlayerOverlay-trackImg {
+    $track-img-size: 220px;
+
+    width: $track-img-size;
+    height: $track-img-size;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .PlayerOverlay-text {
+    font-size: $h5-font-size;
+    line-height: 26px / 18px * 1em;
+  }
+}

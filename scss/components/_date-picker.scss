@@ -1,0 +1,28 @@
+.SingleDatePickerInput {
+  font-family: $font-family-sans-serif;
+
+  .DateInput {
+    display: none;
+  }
+
+  .CalendarMonth_caption {
+    text-transform: capitalize;
+  }
+
+  .CalendarDay__selected,
+  .CalendarDay__selected:active,
+  .CalendarDay__selected:hover {
+    background: $crowshead;
+    border: 1px solid $crowshead;
+  }
+}
+
+// Label of the picker
+.DatePicker-label {
+  color: $crowshead;
+  cursor: 'pointer';
+
+  &.active {
+    color: $primary;
+  }
+}

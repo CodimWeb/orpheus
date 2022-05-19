@@ -1,0 +1,9 @@
+@mixin ellipsis-multiline($number-of-lines, $line-height: $line-height-base) {
+  // stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix
+  display: -webkit-box;
+  height: $line-height * $number-of-lines;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $number-of-lines;
+  // stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix
+}

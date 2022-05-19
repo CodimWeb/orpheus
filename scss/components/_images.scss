@@ -1,0 +1,19 @@
+img, svg {
+  &.img-rounded {
+    border-radius: $border-radius-lg;
+  }
+
+  &.img-full-sized {
+    width: 100%;
+  }
+
+  &.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.img-grayscale {
+    filter: grayscale(100%);
+  }
+}

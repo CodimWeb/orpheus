@@ -1,0 +1,128 @@
+.HCalendar {
+  $item-width:           118px;
+  $item-offset:          14px;
+  $date-bottom-offset:   8px;
+  $date-font-size:       28px;
+  $weekday-font-size:    16px;
+  $calendar-line-height: 24px;
+
+  position: relative;
+
+  @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+    padding: 0 ($grid-gutter-width * 2);
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 66px;
+    content: '';
+    background: linear-gradient(to left, transparent 0, white 100%);
+  }
+
+  &:after {
+    right: 0;
+    left: auto;
+    background: linear-gradient(to right, transparent 0, white 100%);
+
+    @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+      right: $grid-gutter-width * 2;
+    }
+  }
+
+  &.leftBorder:before {
+    opacity: 0;
+  }
+
+  &.rightBorder:after {
+    opacity: 0;
+  }
+
+  .HCalendar-controlLeft,
+  .HCalendar-controlRight {
+    $control-width: 11px;
+    $control-height: 20px;
+
+    position: absolute;
+    top: 50%;
+    width: $control-width;
+    height: $control-height;
+    margin-top: -1 * $control-height / 2;
+    cursor: pointer;
+
+    &:hover path {
+      fill: $primary;
+    }
+  }
+
+  .HCalendar-controlLeft {
+    left: -38px;
+
+    @media (max-width: map-get($grid-breakpoints, lg) - 1) {
+      left: -22px;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+      left: 0;
+    }
+  }
+
+  .HCalendar-controlRight {
+    right: -56px;
+
+    @media (max-width: map-get($grid-breakpoints, lg) - 1) {
+      right: -22px;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+      right: 0;
+    }
+  }
+
+  .HCalendar-slider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: $item-width;
+    height: 4px;
+
+    @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+      margin-left: $grid-gutter-width * 2;
+    }
+  }
+
+  .HCalendar-tape {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .HCalendar-item {
+    min-width: $item-width;
+    margin-right: $item-offset;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .HCalendar-date {
+    margin-bottom: $date-bottom-offset;
+    font-family: $font-family-monospace;
+    font-size: $date-font-size;
+    font-weight: $font-weight-bold;
+    line-height: $calendar-line-height;
+  }
+
+  .HCalendar-weekday {
+    font-size: $weekday-font-size;
+    line-height: $calendar-line-height;
+    color: $gray-300;
+    text-transform: capitalize;
+  }
+}

@@ -1,0 +1,52 @@
+@mixin square-img {
+  position: relative;
+  height: auto;
+  padding-bottom: 100%;
+
+  img, svg {
+    position: absolute;
+  }
+}
+
+.Card {
+  .Card-img {
+    $card-img-height: 250px;
+
+    height: $card-img-height;
+    overflow: hidden;
+    border-radius: $border-radius * 2;
+  }
+
+  .Card-img.is-square {
+    @include square-img();
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, md) - 1) {
+  .Card.Card--main {
+    color: $gray-100;
+
+    .text-muted {
+      color: $gray-300 !important;
+    }
+  }
+}
+
+.Card.Card--alignLeft {
+  $card-img-width: 100px;
+  $card-img-height: $card-img-width;
+  // TODO: set right offsets based on 5px
+  $card-img-right-offset: 25px;
+
+  display: flex;
+
+  .Card-img {
+    width: $card-img-width;
+    height: $card-img-height;
+    margin-right: $card-img-right-offset;
+  }
+
+  .Card-body {
+    flex: 1;
+  }
+}

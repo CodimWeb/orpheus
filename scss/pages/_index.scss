@@ -1,0 +1,107 @@
+// Все события
+.AllEvents {
+  @extend .h3;
+
+  span { display: none; }
+
+  svg {
+    display: block;
+    width: 22px;
+    height: 20px;
+    margin: map-get($spacers, 3) 0 map-get($spacers, 5);
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, xl)) {
+  [data-animate=mainEvents] {
+    // position: fixed;
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 1;
+    margin-top: -196px !important;
+    margin-bottom: 182px;
+    overflow: hidden;
+    transform: translateY(800px);
+    will-change: transform;
+
+    // .h1,
+    // .Card-img {
+    //   opacity: 0;
+    //   will-change: opacity;
+    // }
+  }
+
+  [data-animate=eventsContent] {
+    // height: 490px;
+    padding-bottom: 200px;
+    overflow: hidden;
+    transform:
+      translate3d(
+        ($grid-column-width + $grid-gutter-width) * 4,
+        -424px,
+        0
+      );
+    will-change: height, transform;
+  }
+
+  [data-animate=eventsBg] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 200%;
+    margin-left: -1 * map-get($container-max-widths, xl) / 2 - 54px;
+    border-radius: $border-radius-lg;
+    opacity: 0;
+    transform: translateX(($grid-column-width + $grid-gutter-width) * 4);
+    will-change: opacity, transform;
+  }
+
+  [data-animate=leftMenu] {
+    will-change: transform;
+  }
+
+  [data-animate=mainContent] {
+    opacity: 0;
+    transform: translateY(0);
+    will-change: opacity, transform;
+  }
+
+  .AllEvents[data-animate=allEventsBtn] {
+    z-index: $zindex-tooltip;
+    display: none;
+
+    span { display: block; }
+
+    &.is-fixed {
+      $offset: $grid-x-offset + $grid-gutter-width;
+
+      position: fixed;
+      right: $offset;
+      bottom: -1 * $grid-gutter-width;
+      display: block;
+
+      .AllEvents-bg1,
+      .AllEvents-bg2 {
+        position: absolute;
+        top: -20px;
+        right: -1 * $offset;
+        bottom: 0;
+        left: -1 * $offset * 2;
+        z-index: -1;
+        content: "";
+      }
+
+      .AllEvents-bg1 {
+        background: linear-gradient(to right, rgba(white, 0%) 0%, white $offset, white 100%);
+        opacity: 0;
+      }
+
+      .AllEvents-bg2 {
+        background: linear-gradient(to right, rgba($gray-100, 0%) 0%, $gray-100 $offset, $gray-100 100%);
+        opacity: 1;
+      }
+    }
+  }
+}

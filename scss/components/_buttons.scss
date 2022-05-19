@@ -1,0 +1,14 @@
+.btn + .btn {
+  margin-left: $grid-gutter-width;
+}
+
+.btn-black {
+  @include button-variant(rgba($black, 0.6), transparent);
+
+  color: map-get($theme-colors, light);
+
+  @media (max-width: 767px) {
+    padding: 0.25rem 0.5rem;
+    font-size: $font-size-xs;
+  }
+}

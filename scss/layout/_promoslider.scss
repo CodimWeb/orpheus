@@ -1,0 +1,225 @@
+.Promo-slider {
+    padding-left: 180px;
+    position: relative;
+
+    @media (max-width: 1199px) {
+        padding-left: 100px;
+    }
+
+    @media (max-width: 767px) {
+        padding-left: 0;
+    }
+}
+
+.slick-slider {
+    color: #fff;
+    width: 100%;
+    height: calc(100vh - 400px);
+
+    @media (max-width: 767px) {
+        // height: calc(100vh - 80px);
+        height: 500px;
+    }
+
+    @media (max-width: 767px) and (min-aspect-ratio: 13/9) {
+        height: 380px;
+    }
+}
+
+.slick-list {
+    height: 100%;
+}
+
+.slick-slide {
+    height: calc(100vh - 400px);
+    min-height: calc(100vh - 400px);
+
+    .text-light {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+
+    .h0 {
+        @media (max-width: 767px) {
+            font-size: 42px;
+            line-height: 42px;
+            margin-bottom: 16px;
+        }
+    }
+
+    .text-sans-serif {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    &.slick-active {
+        .text-light {
+            opacity: 1;
+            transform: translateY(0);
+            transition: 1s ease;
+        }
+    }
+
+    @media (max-width: 767px) {
+        height: 500px;
+        min-height: 500px;
+        max-height: 500px;
+        padding-top: 20px;
+    }
+
+    @media (max-width: 767px) and (min-aspect-ratio: 13/9) {
+        padding-top: 20px;
+        height: 380px;
+        min-height: 380px;
+        max-height: 380px;
+    }
+}
+
+.slick-dots {
+    position: absolute;
+    left: -140px;
+    top: 0;
+    margin: 0;
+    padding: 0;
+
+    li {
+        width: 50px;
+        height: 60px;
+        line-height: 60px;
+
+        button {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-size-sm;
+            color: $white;
+            background: transparent;
+            border: none;
+            padding: 0;
+            position: relative;
+
+            &:hover {
+                border-radius: 50%;
+                background: rgba($black, 0.6);
+                font-size: $h4-font-size;
+                font-weight: $font-weight-bolder;
+            }
+
+            &:focus {
+                outline: none;
+            }
+            
+        }
+
+        &.slick-active {
+
+            button {
+                width: 50px;
+                border-radius: 50%;
+                background: rgba($black, 0.6);
+                font-size: $h4-font-size;
+                font-weight: $font-weight-bolder;
+                position: relative;
+                z-index: 2;
+
+                .circle__left {
+                    animation: circleLeft 6.1s linear forwards;
+                }
+
+                .circle__right {
+                    animation: circleRight 6.1s linear forwards;
+                }
+            }
+        }
+
+        @media (max-width: 767px) {
+            width: 60px;
+        }
+    }
+
+    @media (max-width: 1199px) {
+        left: -80px;
+    }
+
+    @media (max-width: 767px) {
+        display: flex !important;
+        left: 0px;
+        bottom: 10px;
+        top: auto;
+    }
+}
+
+.circle {
+    &__box {
+        width: 50px; // circle-size
+        height: 50px; // circle-size
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+        transform: rotateZ(-90deg);
+    }
+    &__wrapper {
+        width: 25px; // circle-half-width
+        height: 50px; // circle-size
+        position: absolute;
+        top: 0;
+        overflow: hidden;
+
+        &--right {
+            right: 0px;
+        }
+        &--left {
+            left: 0px;
+        }
+    }
+    &__whole {
+        width: 50px; // circle-size
+        height: 50px; // circle-size
+        border: 3px solid transparent; // circle-border
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        transform: rotate(-135deg);
+    }
+    
+    &__right {
+        border-top: 3px solid #f0935a; // circle-border
+        border-right: 3px solid #f0935a; // circle-border
+        right: 0px; // need to set at least 1px, or there will be a little white space between the two half-circles
+    }
+
+    &__left {
+        border-bottom: 3px solid #f0935a; // circle-border
+        border-left: 3px solid #f0935a; // circle-border
+        left: 0px; // need to set at least 1px, or there will be a little white space between the two half-circles  
+    }
+}
+  
+  
+@keyframes circleRight{
+    0% {
+        transform: rotate(-135deg);
+    }
+
+    50%,100%{
+        transform: rotate(45deg);
+    }
+}
+@keyframes circleLeft {
+    0%,50%{
+        transform: rotate(-135deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100%{
+        transform: rotate(45deg);
+        opacity: 1;
+    }
+}

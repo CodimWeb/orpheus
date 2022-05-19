@@ -1,0 +1,9 @@
+export { default as AlphabeticalIndex } from './AlphabeticalIndex';
+export { default as AlphabeticalIndexItem } from './AlphabeticalIndexItem';
+export { default as Countries } from './Countries';
+export { default as OccupationIndex } from './OccupationIndex';
+export { default as OccupationIndexItem } from './OccupationIndexItem';
+export { default as Occupations } from './Occupations';
+export { default as PersonCard } from './PersonCard';
+export { default as PersonsList } from './PersonsList';
+export { default as SearchForm } from './SearchForm';

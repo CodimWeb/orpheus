@@ -1,0 +1,62 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+// Fixed-width responsive containers
+.container {
+  @include make-container();
+  @include make-container-max-widths();
+
+  padding: 0;
+
+  @media (max-width: map-get($grid-breakpoints, sm) - 1) {
+    padding: 0 ($grid-x-offset / 2);
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+// Col
+.col {
+  position: relative;
+  display: flex;
+  margin-right: $grid-gutter-width / 2;
+  margin-left: $grid-gutter-width / 2;
+}
+
+// Row
+.row {
+  @include make-row();
+
+  align-items: center;
+
+  // Remove the negative margin from default .row, then the horizontal padding
+  // from all immediate children columns (to prevent runaway style inheritance).
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col-"] {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+// Generate fixed-width grid classes
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    $width: $grid-column-width * $i + $grid-gutter-width * ($i - 1);
+
+    position: relative;
+    width: $width;
+    max-width: 100%;
+    margin-right: $grid-gutter-width / 2;
+    margin-left: $grid-gutter-width / 2;
+  }
+}
